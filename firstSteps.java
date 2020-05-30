@@ -1,9 +1,9 @@
 import java.lang.ProcessBuilder.Redirect.Type;
 
 /**
- * hello_world
+ * firstSteps
  */
-public class hello_world {
+public class firstSteps {
 
     public static void main(String[] args) {
         String a1 = "abc";                   //String Variable

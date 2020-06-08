@@ -3,7 +3,7 @@ import java.lang.ProcessBuilder.Redirect.Type;
 /**
  * firstSteps
  */
-public class firstSteps {
+public class FirstSteps {
 
     public static void main(String[] args) {
         String a1 = "abc";                   //String Variable

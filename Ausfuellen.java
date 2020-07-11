@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Ausfuellen {
-	public static void main(String[] args){
-		Scanner input = new Scanner(System.in);
-		System.out.println("Hallo, wie ist Ihr Name?");
-		String name = input.next();
-		System.out.println("Hallo "+name);
+	public static void main(String[] args){							// main = Verhalten/Methode führt zur Ausgabe
+		Scanner input = new Scanner(System.in);						
+		System.out.println("Hallo, wie ist Ihr Name?");				// Klasse System Verhalten/Methode println() 1x mal ausgeführt
+		String name = input.next();									// Klasse Scanner Verhalten/Methode next() 
+		System.out.println("Hallo "+name);							// Klasse System Verhalten/Methode println() 2x mal ausgeführt
 		
 		int zahl1 = 5; // Hier müssen Sie die Kommentarzeichen entfernen
 		

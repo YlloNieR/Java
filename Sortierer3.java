@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
-public class Sortierer3{
-	
-	public static int[] sortierer(int a,int b,int c){		
+public class Sortierer3 {
+
+	public static int[] sortierer(int a, int b, int c) {
 		int tmp;
-		if(a > b){
+		if (a > b) {
 			tmp = a;
 			a = b;
 			b = tmp;
 		}
-		if(a > c){
+		if (a > c) {
 			tmp = a;
 			a = c;
 			c = tmp;
 		}
-		if(b > c){
+		if (b > c) {
 			tmp = b;
 			b = c;
 			c = tmp;
-		}	
-		
+		}
+
 		int[] arrayList = new int[3];
 		arrayList[0] = a;
 		arrayList[1] = b;
@@ -27,12 +27,16 @@ public class Sortierer3{
 		return arrayList;
 	}
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		int s1 = s.nextInt(); 
-		int s2 = s.nextInt(); 
-		int s3 = s.nextInt(); 
-		
-		System.out.println(sortierer(s1,s2,s3));
+		int s1 = s.nextInt();
+		int s2 = s.nextInt();
+		int s3 = s.nextInt();
+
+		int[] arrayList = sortierer(s1, s2, s3);
+		for (int i = 0; i < arrayList.length; i++) {
+			System.out.print(arrayList[i]+ " ");
+		}
+		s.close();
 	}
 }

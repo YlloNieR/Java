@@ -46,5 +46,6 @@ public class Ausfuellen {
 			System.out.println("not true");
 		}
 		System.out.println("Gut gemacht!");
+		input.close();
 	}
 }

@@ -6,21 +6,24 @@ public class PizzaBerechnung{
 	int belagAnzahl2 = 3;
 	int belagAnzahl3 = 12;
 	
+	
 	if(belagAnzahl1 > 0){
-	double pizzaPreisGesamt = (leerePizza*(belageZusatz*belagAnzahl1));
-	String PizzaPreisGesamt = String.format("%.2f",pizzaPreisGesamt);
+	double pizzaPreisGesamt = (leerePizza*(belageZusatz*belagAnzahl1));	
+	System.out.println("Bei "+belagAnzahl1+" Belaegen kostet die Pizza "+zweistellig(pizzaPreisGesamt)+" Euro");
 	} else{
 		double pizzaPreisGesamt = leerePizza;
-		String PizzaPreisGesamt = String.format("%.2f",pizzaPreisGesamt);
-		System.out.println("Bei "+belagAnzahl1+" Belaegen kostet die Pizza "+PizzaPreisGesamt+" Euro");
+		System.out.println("Bei "+belagAnzahl1+" Belaegen kostet die Pizza "+zweistellig(pizzaPreisGesamt)+" Euro");
 	}
 	
-	double pizzaPreisGesamt2 = (leerePizza*(belageZusatz*belagAnzahl2));
-	String PizzaPreisGesamt2 = String.format("%.2f",pizzaPreisGesamt2);
-	System.out.println("Bei "+belagAnzahl2+" Belaegen kostet die Pizza "+PizzaPreisGesamt2+" Euro");
+	double pizzaPreisGesamt2 = (leerePizza*(belageZusatz*belagAnzahl2));	
+	System.out.println("Bei "+belagAnzahl2+" Belaegen kostet die Pizza "+zweistellig(pizzaPreisGesamt2)+" Euro");
 	
-	double pizzaPreisGesamt3 = (leerePizza*(belageZusatz*belagAnzahl3));
-	String PizzaPreisGesamt3 = String.format("%.2f",pizzaPreisGesamt3);
-	System.out.println("Bei "+belagAnzahl3+" Belaegen kostet die Pizza "+PizzaPreisGesamt3+" Euro");	
+	double pizzaPreisGesamt3 = (leerePizza*(belageZusatz*belagAnzahl3));	
+	System.out.println("Bei "+belagAnzahl3+" Belaegen kostet die Pizza "+zweistellig(pizzaPreisGesamt3)+" Euro");	
 	}	
+
+	public static String zweistellig(double zahl){
+		String umwandler = String.format("%.2f",zahl);
+		return umwandler;
+	}
 }

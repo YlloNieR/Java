@@ -1,3 +1,4 @@
+/*Hinweis s.close() kann nicht aufgerufen werden*/
 import java.util.Scanner;
 import java.util.Random;
 

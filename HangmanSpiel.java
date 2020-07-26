@@ -1,3 +1,4 @@
+/*Hinweis s.close() kann nicht aufgerufen werden*/
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -7,7 +8,6 @@ public class HangmanSpiel {
     private static final char[] LOESUNGb = str.toCharArray(); // 'h','a','l','l','o'
     private static char[] LOESUNGtmp1 = new char[LOESUNGa.length]; // '_','a','_','_','_'
     private static char[] LOESUNGtmp2 = new char[LOESUNGa.length]; // '_','_','_','_','_'
-
     private static int counter = 11;
 
     public static void main(String[] args) {
@@ -28,7 +28,11 @@ public class HangmanSpiel {
             System.out.println("\nSie haben noch " + counter + " Versuche!");
 
         }
+        System.out.println(LoesungAusgabe());
+    }
 
+    public static String LoesungAusgabe() {
+        return "\nGlueckwunsch " + str + " ist das gesuchte Wort!";
     }
 
     public static char[] umwandlung() {
@@ -44,6 +48,7 @@ public class HangmanSpiel {
         Scanner s = new Scanner(System.in);
         System.out.println("Geben Sie einen Buchstaben ein!");
         char eingabe = s.next().charAt(0);
+
         return eingabe;
     }
 
@@ -109,9 +114,7 @@ public class HangmanSpiel {
             case 0:
                 System.out.println("\n |+----+\n |/    \n |    O\n |    \\|/\n |    / \\\n/ \\   \n");
                 System.out.println("GAME OVER");
-                System.exit(0);;
-
+                System.exit(0);
         }
     }
-
 }

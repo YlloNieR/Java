@@ -7,7 +7,8 @@ public class Tagerechner{
 		int omasGebMonat = 10;
 		
 		int verbleibendeTage = omasGeb - heute;
-		System.out.println("Aufgabe 2.3\nMeine Oma hat in "+verbleibendeTage+" Geburtstag!\n");
+		int verbleibenMonate = omasGebMonat - monat;
+		System.out.println("Aufgabe 2.3\nMeine Oma hat in "+verbleibendeTage+" und "+verbleibenMonate+" Monate"+" Geburtstag!\n");
 		
 		
 		// Aufgabe 2.2

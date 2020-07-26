@@ -19,12 +19,14 @@ public class Ratespiel1{
 			if(rateZahl == eingabe){
 				System.out.println("Deine Zahl "+eingabe+" ist richtig \n GLUECKWUNSCH!\n");				
 				System.out.println("Du hast "+i+" von 5 Versuchen benoetigt!");
+				input.close();
 				System.exit(0);
 			}	
 			else {	
 				System.out.println("Deine Zahl "+eingabe+" ist leider falsch \nVersuchen Sie es nochmal!\n");			
 				if(i == 0){
 					System.out.println("Sei haben keine Versuche mehr!");					
+					input.close();
 					System.exit(0);
 				}
 				else if(eingabe<rateZahl){

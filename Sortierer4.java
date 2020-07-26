@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Sortierer5{
+public class Sortierer4{
 
 	public static void main (String[] args){
 		Scanner s = new Scanner(System.in);
@@ -10,7 +10,7 @@ public class Sortierer5{
 		
 		int[] sortierliste = sortierung(a,b,c);
 		printArray(sortierliste);
-		
+		s.close();
 	}
 		
 	public static void printArray(int[] array){

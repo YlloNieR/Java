@@ -32,7 +32,7 @@ public class DreieckeBerechnenMain {
         else{
             System.out.println("Du hast keine gueltige Auswahl getroffen [1 oder 2]");
         }
-
+        s.close();
     }
 
     public static String Option1() {

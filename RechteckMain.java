@@ -12,6 +12,7 @@ public class RechteckMain {
 
         RechteckKlasse neuesRechteck = new RechteckKlasse(h, b);
         System.out.println(neuesRechteck.printInfo());
+        s.close();
     }
 
     public static String printInfoEingabeH() {
@@ -19,6 +20,6 @@ public class RechteckMain {
     }
 
     public static String printInfoEingabeB() {
-        return "Wie hoch ist das Rechteck? ";
+        return "Wie breit ist das Rechteck? ";
     }
 }

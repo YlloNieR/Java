@@ -1,8 +1,3 @@
-import java.lang.ProcessBuilder.Redirect.Type;
-
-/**
- * firstSteps
- */
 public class FirstSteps {
 
     public static void main(String[] args) {

@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class NeueMailsAnzeigen {
     public static void main(String[] args) {
-        NeueMailsAnzeigen();
+        NeueMailsAnzeigenMethode();
 
     }
 
-    public static void NeueMailsAnzeigen(){
+    public static void NeueMailsAnzeigenMethode(){
     Scanner s = new Scanner(System.in);        
         int neueNachrichten = s.nextInt();
         
@@ -18,6 +18,7 @@ public class NeueMailsAnzeigen {
         else{
             System.out.println("Sie haben keine neuen Nachrichten!\n");
         }
+        s.close();
     }
     
 /*     public static void zeigeNeueNachrichten(int neueNachrichten){

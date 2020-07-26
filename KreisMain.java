@@ -13,5 +13,6 @@ public class KreisMain {
 
         KreisKlasse neuerKreis = new KreisKlasse(r,x,y);
         System.out.println(neuerKreis.printInfo());
+        s.close();
     }
 }

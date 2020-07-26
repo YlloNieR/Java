@@ -9,7 +9,18 @@ public class Palindrom {
         String input = s.next();
         String lowStr = input.toLowerCase();
         
-        System.out.println(input+" ein Palindrom? -> "+isPalindrome(lowStr));
+        System.out.println("Ist "+input+" ein Palindrom? -> "+antwort(isPalindrome(lowStr)));
+        s.close();
+    }
+
+    public static String antwort(boolean isPalindrome){
+        boolean wahrOderFalsch = isPalindrome;
+        if(wahrOderFalsch == true){
+            return "Ja das stimmt!";
+        }
+        else{
+            return "Nein das ist Falsch!";
+        }
     }
 
     public static boolean isPalindrome(String lowStr) {

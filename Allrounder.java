@@ -153,6 +153,6 @@ public class Allrounder {
 			System.out.println("Zahl " + a + " / " + "Zahl " + b + " = ");
 			System.out.println((a / b) + " Rest " + option5RestBerechnen(a, b));
 		}
-
+		s.close();
 	}
 }

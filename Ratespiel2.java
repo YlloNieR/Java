@@ -22,12 +22,14 @@ public class Ratespiel2{
 				System.out.println("Deine Zahl "+eingabe+" ist richtig \n GLUECKWUNSCH!\n");
 				i++;
 				System.out.println("Du hast "+i+" von 5 Versuchen benoetigt!");
+				input.close();
 				System.exit(0);
 			}	
 			else {	
 				System.out.println("Ihre Zahl "+eingabe+" ist leider falsch \nVersuchen Sie es nochmal!\n");			
 				if(i == 4){
 					System.out.println("Du hast alle 5 Versuche verbraucht.");
+					input.close();
 					System.exit(0);
 				}
 				else if(eingabe<rateZahl){

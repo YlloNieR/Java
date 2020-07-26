@@ -5,7 +5,7 @@ public class SummeDerZahlen {
         Scanner s = new Scanner(System.in);
         System.out.println("Aus welchen Zahlen moechtest du die Quwersumme bilden?");
         int zahl = s.nextInt();
-        System.out.println("\nWaehle\nOption1 Modulo Verfahren \nOption2 Char Verfahren");
+        System.out.println("\nWaehle:\n\tOption 1 = Modulo Verfahren \n\tOption 2 = Char Verfahren");
         int auswahl = s.nextInt();
 
         if (auswahl == 1) {
@@ -40,7 +40,7 @@ public class SummeDerZahlen {
             }
 
         }
-
+        s.close();
     }
 
     public static int summeBilden(int[] array) {

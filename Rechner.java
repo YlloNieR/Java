@@ -42,7 +42,7 @@ public class Rechner{
 		int Divisor = 4;
 		double Quotient = (double)Dividend / Divisor;
 		
-		System.out.println("Dividend / Divisor = "+Produkt);		
+		System.out.println("Dividend / Divisor = "+Quotient);		
 
 	}	
 }

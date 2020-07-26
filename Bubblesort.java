@@ -7,7 +7,7 @@ public class Bubblesort {
         int ersteZahl = input.nextInt();
         System.out.print("Gib die zweite Zahl ein: ");
         int zweiteZahl = input.nextInt();
-        System.out.print("Gib die dritte Zahl ein: ");2
+        System.out.print("Gib die dritte Zahl ein: ");
         int dritteZahl = input.nextInt();
 
         int[] zahlenArray = new int[3];

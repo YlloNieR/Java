@@ -1,76 +1,60 @@
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MyDecoder {
-    public static String byteToHex(byte b) {
-        // Returns hex String representation of byte b
-        char hexDigit[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-        char[] array = { hexDigit[(b >> 4) & 0x0f], hexDigit[b & 0x0f] };
-        return new String(array);
-    }
 
-    public static String charToHex(char c) {
-        // Returns hex String representation of char c
-        byte hi = (byte) (c >>> 8);
-        byte lo = (byte) (c & 0xff);
-        return byteToHex(hi) + byteToHex(lo);
-    }
+    public static void readFile(int option, String fileName) {
+        
+        try {     
+            ArrayList<String> allLinesRead = new ArrayList<>(Files.readAllLines(Paths.get(fileName)));
 
-    public static void printBytes(byte[] array, String name) {
-        for (int k = 0; k < array.length; k++) {
-            System.out.println(name + "[" + k + "] = " + "0x" + MyDecoder.byteToHex(array[k]));
-        }
-    }
-
-    public static void toHex(String original) {
-        try {
-            byte[] utf8Bytes = original.getBytes("UTF8");
-            byte[] defaultBytes = original.getBytes();
-
-            String roundTrip = new String(utf8Bytes, "UTF8");
-            System.out.println("roundTrip = " + roundTrip);
-            System.out.println();
-            printBytes(utf8Bytes, "utf8Bytes");
-            System.out.println();
-            printBytes(defaultBytes, "defaultBytes");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }        
-    }
-
-    public static String readFile(String fileName) {
-        String data = "";
-        try {
-            File myFile = new File(fileName);
-            Scanner fileReader = new Scanner(myFile);
-
-            while (fileReader.hasNextLine()) {
-                data = fileReader.nextLine();
+            switch (option) {
+                case 1:
+                    System.out.println("Typ Array: " + allLinesRead);
+                    binaryToText(allLinesRead);
+                    break;
             }
-            toText(data);
-            fileReader.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             System.out.println("Ein Fehler ist aufgetreten!");
             e.printStackTrace();
         }
-        return data;
+    }
+
+    public static void binaryToText(ArrayList<String> data) {
+        for (int i = 0; i < data.size(); i++) {
+            int binary = Integer.valueOf(data.get(i));
+            System.out.println("Typ Int: " + binary);
+            int decimal = Integer.parseInt(data.get(i), 2);
+            System.out.println("Typ decimal: " + decimal);
+            char charakter = (char) decimal;
+            if (charakter < 21) {
+                System.out.println("Typ ASCII: " + "kein Buchstabe");
+            } else {
+                System.out.println("Typ ASCII: " + charakter);
+            }
+            System.out.println();
+        }
+
     }
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 
-        System.out.println("Was soll decodiert werden?");
-        System.out.println("Option 1 - .bin Dateien");
+        System.out.print("\nGeben Sie die Datei (Bsp.: asd.txt) an, welche sich im selben Ordner befindet:");
+        String fileName = s.next();
+        System.out.println("\nWas soll decodiert werden?");
+        System.out.println("\tOption 1 - binary to String");
         int option = s.nextInt();
+        System.out.println();
+
 
         switch (option) {
             case 1:
-                System.out.println("Geben Sie die Datei ein welche sich im selben Ordner befindet:\nBeispiel:asd.bin");
-                String myFile = s.next();
-
-                System.out.println(readFile(myFile));
+                readFile(option, fileName);
                 break;
 
             default:

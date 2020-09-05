@@ -1,5 +1,3 @@
-import jdk.jfr.BooleanFlag;
-
 public class ArrayFindeSpezifischerWert {
     public static void main(String[] args) {
         int[] zahlen = { 9, 8, 7, 6, 4, 3, 5, 1 };

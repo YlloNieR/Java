@@ -46,14 +46,14 @@ public class SoldatMain {
             System.out.println("Geburtsdatum: " + neuerSoldat.getGeburtsdatum().getDate());
         } else {
             Dienstgrad dienstgrad = Dienstgrad.values()[8];
-            String einheit = "ITBtl293 4.Kp";
-            String pk = "060887 R 70215";
-            String name = "Rein";
+            String einheit = "PzGr3 2.Kp";
+            String pk = "06234887 D 2322341";
+            String name = "Mustermann";
             Geschlecht geschlecht = Geschlecht.values()[2];
             int personalnummer = 11295356;
-            int day = 6;
-            int month = 8;
-            int year = 1987;
+            int day = 3;
+            int month = 3;
+            int year = 1937;
             Date geburtsdatum = new Date(year, month, day);
 
             Soldat neuerSoldat2 = new Soldat(dienstgrad, einheit, pk, name, geschlecht, personalnummer, geburtsdatum);

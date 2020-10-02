@@ -22,19 +22,17 @@ public class RekursivFakultaet {
         /* 5! = 5*4*3*2*1 = 120 */
         /* 4! = 4*3*2*1 = 24 */
 
-        RekursivFakultaet rf = new RekursivFakultaet();        
+        RekursivFakultaet rf = new RekursivFakultaet();
 
-        Scanner s = new Scanner(System.in);     
+        Scanner s = new Scanner(System.in);
         int integer = 0;
-        try {integer = s.nextInt();}
-        catch (InputMismatchException ex) {
-            if (integer < 3) {
-                throw new IllegalArgumentException("Falsche Zahl");
-            }
-        }
+
+        if (integer < 3) 
+            throw new IllegalArgumentException("Falsche Zahl");
+        
 
         System.out.println(rf.fakultaet(integer));
-        
+
         s.close();
     }
 }

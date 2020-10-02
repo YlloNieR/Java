@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RekursivFakultaet {
@@ -10,10 +11,10 @@ public class RekursivFakultaet {
             return ergebnis;
         } else {
             ergebnis = ergebnis * n;
-            return ( fakultaet(n - 1));
+            return (fakultaet(n - 1));
         }
 
-    }    
+    }
 
     public static void main(String[] args) {
         /* Fakultaet: n */
@@ -23,8 +24,14 @@ public class RekursivFakultaet {
 
         RekursivFakultaet rf = new RekursivFakultaet();        
 
-        Scanner s = new Scanner(System.in);
-        int integer = s.nextInt();
+        Scanner s = new Scanner(System.in);     
+        int integer = 0;
+        try {integer = s.nextInt();}
+        catch (InputMismatchException ex) {
+            if (integer < 3) {
+                throw new IllegalArgumentException("Falsche Zahl");
+            }
+        }
 
         System.out.println(rf.fakultaet(integer));
         

@@ -31,6 +31,18 @@ public class Auto {
         this.tank = 40;
     }
 
+    public double getKilometer() {
+        return this.kilometer;
+    }
+
+    public double getPreis() {
+        return this.preis;
+    }
+
+    public double getTank() {
+        return this.tank;
+    }
+
     public static void fahren(){
         System.out.println("Das Auto fährt");
     };

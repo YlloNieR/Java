@@ -12,13 +12,16 @@ public class Autopark {
         kfz1.verbrauch = 10;
         kfz1.baujahr = 2000;
         
-        System.out.println(kfz1.farbe+" "+kfz1.marke+" "+kfz1.ps+" "+kfz1.verbrauch+" "+kfz1.baujahr);
-        System.out.println(kfz2.farbe+" "+kfz2.marke+" "+kfz2.ps+" "+kfz2.verbrauch+" "+kfz2.baujahr);
+        System.out.println("\nKFZ1 Stats\nFarbe: "+kfz1.farbe+"\nKilometer: "+kfz1.getKilometer()+"\nMarke: "+kfz1.marke+"\nPS: "+kfz1.ps+"\nVerbrauch: "+kfz1.verbrauch+"\nPreis: "+kfz1.getPreis()+"\nBaujahr: "+kfz1.baujahr+"\nTankgroesse: "+kfz1.getTank());
+        System.out.println("\nKFZ2 Stats\nFarbe: "+kfz2.farbe+"\nKilometer: "+kfz2.getKilometer()+"\nMarke: "+kfz2.marke+"\nPS: "+kfz2.ps+"\nVerbrauch: "+kfz2.verbrauch+"\nPreis: "+kfz2.getPreis()+"\nBaujahr: "+kfz2.baujahr+"\nTankgroesse: "+kfz2.getTank());
         
         
-        System.out.println(kfz3.marke);
-        System.out.println(kfz3.hupen());
-        TimeUnit.SECONDS.sleep(2);
+        System.out.println("\nKFZ3 Marke:\n"+kfz3.marke);
+        System.out.println("\nDer "+kfz3.marke+" macht");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println(kfz3.hupen());        
+        System.out.println("\nDer "+kfz3.marke+" macht");
+        TimeUnit.SECONDS.sleep(1);
         System.out.println(kfz3.hupen());
 
 

@@ -6,7 +6,6 @@ public class KreisKlasse {
     public double[] m;
     public double A;
     public double U;
-    private Punkt m2;
 
     public KreisKlasse(double r, double x, double y) {
         this.r = r;
@@ -15,7 +14,6 @@ public class KreisKlasse {
         this.m = new double[2]; // Mittelpunkt
         this.A = flaecheninhalt();
         this.U = umfang();
-        this.m2 = new Punkt(x, y);
     }
 
     public double[] getMittelpunkt() {
@@ -32,11 +30,7 @@ public class KreisKlasse {
 
     public double getY() {
         return this.y;
-    }
-
-    public void setM2(double x, double y) {
-        this.m2 = new Punkt(x,y);
-    }
+    }  
 
     public void setRadius(double r) {
         this.r = r;

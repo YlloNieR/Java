@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class MainProg extends JFrame {
     public MainProg() {
@@ -13,8 +12,5 @@ public class MainProg extends JFrame {
     public static void main(String[] args) {
         MainProg mainProg = new MainProg();
         mainProg.setVisible(true);
-        
-       
-            
     }
 }

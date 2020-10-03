@@ -25,14 +25,26 @@ public class RekursivFakultaet {
         RekursivFakultaet rf = new RekursivFakultaet();
 
         Scanner s = new Scanner(System.in);
-        int integer = 0;
 
-        if (integer < 3) 
-            throw new IllegalArgumentException("Falsche Zahl");
-        
-
-        System.out.println(rf.fakultaet(integer));
-
-        s.close();
+        System.out.println("\nrobuste Fakultaet Berechnung");
+        while (true) {
+            try {
+                System.out.println("Geben Sie eine Zahl ein zwischen 0 & 11:");
+                int integer = s.nextInt();
+                if (integer > 10 || integer == 0) {
+                    throw new IllegalArgumentException(
+                            "\nError - Die Zahl liegt nicht Bereich zwischen 0 & 11 \n= throw new IllegalArgumentException");
+                } else {
+                    if (integer < 0) {
+                        throw new IllegalArgumentException(
+                                "\nError - Die Zahl ist negativ \n= throw new IllegalArgumentException");                                
+                    } else {
+                        System.out.println("\nDie Fakultaet von " + integer + " ist " + rf.fakultaet(integer) + "\n");
+                    }
+                }
+            } catch (InputMismatchException exeptionName) {
+                System.out.println("Error - Das ist Kein Integer \n= try / catch InputMismatchException exeptionName");          
+            }
+        }        
     }
 }

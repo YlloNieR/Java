@@ -22,10 +22,11 @@ public class BankKonto2{
                         + kommastellen(this.kontoStand2) + " Euro");
     }
 
-    public void abheben(double x) {
+    public void abheben(double x) throws AusnahmeException{
+        if(this.kontoStand2-x < 0) throw new AusnahmeException("Konto kann nicht ueberzogen werden!\n");        
         this.kontoStand2 = this.kontoStand2 - x;
         System.out.println(
                 "Der Betrag " + kommastellen(x) + " Euro wurde vom Konto abhgehoben.\nDer neue Kontostand lautet: "
                         + kommastellen(this.kontoStand2) + " Euro");
-    }   
+    }       
 }

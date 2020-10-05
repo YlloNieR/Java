@@ -1,4 +1,4 @@
-public class FirstSteps {
+public class firstSteps {
 
     public static void main(String[] args) {
         String a1 = "abc";                   //String Variable

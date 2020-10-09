@@ -3,7 +3,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.EmptyStackException;
 
 public class BerechnungGui extends JFrame implements ActionListener {
 

@@ -5,7 +5,10 @@ import java.awt.event.ActionListener;
 
 public class Bankkonto2Gui extends JFrame implements ActionListener {
 
+    private JTextField kontobesitzer;
     private JTextField kontoStandFeld;
+    private JTextField kontofuehrungsgebuehr;
+    private JTextField kontozinssatz;
     private JTextField betragFeld;
     private JButton einzahlenButton;
     private JButton abhebenButton;
@@ -17,38 +20,67 @@ public class Bankkonto2Gui extends JFrame implements ActionListener {
         this.setTitle("Bankkonto2 GUI"); // Rahmentitel
         this.setSize(280, 180); // Größe Fenster
 
-        // Eingabe
+        // Kontobesitzer
+        JPanel hintergrundPanelKontobesitzer = new JPanel();
+        JLabel labelKontobesitzer = new JLabel("Kontobesitzer:");
+        this.kontobesitzer.setText(this.konto.getKontobesitzer());
+        this.kontobesitzer.setEditable(false);
+        hintergrundPanelKontobesitzer.add(labelKontobesitzer);
+        hintergrundPanelKontobesitzer.add(this.kontobesitzer);
+
+        // Kontostand alt / neu
+        JPanel hintergrundPanelKontostand = new JPanel();
+        JLabel labelKontostand = new JLabel("Kontostand:");
         this.kontoStandFeld = new JTextField("0.0", 10); // Initialisierung kontoStandFeld Textfield
         this.kontoStandFeld.setEditable(false);
+        this.kontoStandFeld.setText(Double.toString(this.konto.getKontostand()) + " Euro");
+        hintergrundPanelKontostand.add(labelKontostand);
+
+        // Kontofuehrungsgebuehr
+        JPanel hintergrundPanelKontofuehrungsgebuehr = new JPanel();
+        JLabel labelKontofuehrungsgebuehr = new JLabel("Kontofuehrungsgebuehr:");
+        this.kontofuehrungsgebuehr = new JTextField(10); // Initialisierung kontoStandFeld Textfield
+        this.kontofuehrungsgebuehr.setEditable(false);
+        this.kontofuehrungsgebuehr.setText(Double.toString(this.konto.getKontofuehrungsgebuehr()) + " Euro");
+        hintergrundPanelKontofuehrungsgebuehr.add(labelKontofuehrungsgebuehr);
+
+        // Kontozinssatz
+        JPanel hintergrundPanelKontozinssatz = new JPanel();
+        JLabel labelKontozinssatz = new JLabel("Kontozinssatz:");
+        this.kontozinssatz = new JTextField(10); // Initialisierung kontoStandFeld Textfield
+        this.kontozinssatz.setEditable(false);
+        this.kontozinssatz.setText(Double.toString(this.konto.getKontozinssatz()) + " %");
+        hintergrundPanelKontozinssatz.add(labelKontozinssatz);
+
+        // Betrag Eingabe Feld
+        JPanel hintergrundPanelBetragfeld = new JPanel();
+        JLabel labelBetragfeld = new JLabel("Betrag:");
         this.betragFeld = new JTextField(10); // Initialisierung betragFeld Textfield
-        this.kontoStandFeld.setText(Double.toString(this.konto.getKontoStand()));
+        hintergrundPanelBetragfeld.add(labelBetragfeld);
+        hintergrundPanelBetragfeld.add(this.betragFeld);
 
         // Button
+        JPanel hintergrundPanelButtons = new JPanel();
+
+        // Einzahlen
         this.einzahlenButton = new JButton("Einzahlen");
         this.einzahlenButton.addActionListener(this);
+        hintergrundPanelButtons.add(einzahlenButton);
+
+        // Abheben
         this.abhebenButton = new JButton("Abheben");
         this.abhebenButton.addActionListener(this);
-
-        // Label
-        JLabel labelKontoStand = new JLabel("Kontostand:"); // Initialisierung labelKontoStand
-        JPanel hintergrundPanel = new JPanel(); // Initialisierung hintergrundPanel
-        hintergrundPanel.add(labelKontoStand); // Hinzufügen des Label labelKontoStand
-        hintergrundPanel.add(this.kontoStandFeld); // Hinzufügen des Ist Standes
-
-        JPanel betragPanel = new JPanel();
-        JLabel labelBetrag = new JLabel("Betrag");
-        betragPanel.add(labelBetrag);
-        betragPanel.add(this.betragFeld);
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(this.einzahlenButton);
-        buttonPanel.add(this.abhebenButton);
+        hintergrundPanelButtons.add(abhebenButton);
 
         // content pane
         Container contentPane = this.getContentPane();
-        contentPane.add(hintergrundPanel);
-        contentPane.add(betragPanel);
-        contentPane.add(buttonPanel);
-        contentPane.setLayout(new GridLayout(3, 1));
+        contentPane.add(hintergrundPanelKontobesitzer);
+        contentPane.add(hintergrundPanelKontostand);
+        contentPane.add(hintergrundPanelKontofuehrungsgebuehr);
+        contentPane.add(hintergrundPanelKontozinssatz);
+        contentPane.add(hintergrundPanelBetragfeld);
+        contentPane.add(hintergrundPanelButtons);
+        contentPane.setLayout(new GridLayout(6, 1));
 
         // Schließbefehl, ich klick auf X und Programm endet, auch in Console
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -60,7 +92,7 @@ public class Bankkonto2Gui extends JFrame implements ActionListener {
         if (source == this.einzahlenButton) {
             double betrag = Double.parseDouble(this.betragFeld.getText());
             this.konto.einzahlen(betrag);
-            this.kontoStandFeld.setText(Double.toString(this.konto.getKontoStand()));
+            this.kontoStandFeld.setText(Double.toString(this.konto.getKontostand()));
         }
         if (source == this.abhebenButton) {
             double betrag = Double.parseDouble(this.betragFeld.getText());
@@ -70,7 +102,7 @@ public class Bankkonto2Gui extends JFrame implements ActionListener {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
-            this.kontoStandFeld.setText(Double.toString(this.konto.getKontoStand()));
+            this.kontoStandFeld.setText(Double.toString(this.konto.getKontostand()));
         }
     }
 

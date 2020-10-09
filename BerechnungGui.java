@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BerechnungGui extends JFrame /* implements ActionListener */ {
+public class BerechnungGui extends JFrame implements ActionListener {
 
     private JTextField eingabe1;
     private JTextField eingabe2;
@@ -21,12 +21,6 @@ public class BerechnungGui extends JFrame /* implements ActionListener */ {
         this.eingabe1 = new JTextField(10);
         this.eingabe2 = new JTextField(10);
 
-        // Button
-        this.summeButton = new JButton("Summe");
-        // this.summeButton.addActionListener(this);
-        this.produktButton = new JButton("Produkt");
-        // this.produktButton.addActionListener(this);
-
         // Label + Input Feld Zahl Eins
         JPanel hintergrundPanelZahlEins = new JPanel();
         JLabel labelZahlEins = new JLabel("1. Zahl:");
@@ -39,22 +33,26 @@ public class BerechnungGui extends JFrame /* implements ActionListener */ {
         hintergrundPanelZahlZwei.add(labelZahlZwei);
         hintergrundPanelZahlZwei.add(this.eingabe2);
 
-        // Button 
+        // Button Panel erstellen
         JPanel hintergrundPanelButton = new JPanel();
-        
+
         // Button Summe
-        this.summeButton = new JButton("Summe");        
+        this.summeButton = new JButton("Summe");
+        this.summeButton.addActionListener(this);
         hintergrundPanelButton.add(this.summeButton);
 
         // Button Produkt
         this.produktButton = new JButton("Produkt");
+        this.produktButton.addActionListener(this);
         hintergrundPanelButton.add(this.produktButton);
 
         // Label + Input Feld Ausgabe
         JPanel hintergrundPanelAusgabe = new JPanel();
+        this.ausgabe = new JTextField(10);
+        this.ausgabe.setEditable(false);
         JLabel labelAusgabe = new JLabel("Ausgabe:");
         hintergrundPanelAusgabe.add(labelAusgabe);
-        //hintergrundPanelAusgabe.add(this.ausgabe);
+        hintergrundPanelAusgabe.add(this.ausgabe);
 
         // content pane Anbringen der erstellten Teile am Fenster
         Container contentPane = this.getContentPane();
@@ -62,29 +60,38 @@ public class BerechnungGui extends JFrame /* implements ActionListener */ {
         contentPane.add(hintergrundPanelZahlZwei);
         contentPane.add(hintergrundPanelButton);
         contentPane.add(hintergrundPanelAusgabe);
-        // contentPane.setLayout(new GridLayout(3, 1));
+        // 4 Zeilen mit immer einer Spalte
+        contentPane.setLayout(new GridLayout(4, 1)); 
 
-        
         // Schließbefehl, ich klick auf X und Programm endet, auch in Console
-        /*
-          this.setDefaultCloseOperation(EXIT_ON_CLOSE); }
-         * 
-         * public double produktBerechnen(double x, double y){ double produkt = x * y;
-         * return produkt; }
-         * 
-         * public double summeBerechnen(double x, double y){ double summe = x + y;
-         * return summe; }
-         * 
-         * @Override public void actionPerformed(ActionEvent e) { Object source =
-         * e.getSource(); // Welcher Knopf? if (source == this.summeButton) { double
-         * zahl1 = Double.parseDouble(this.eingabe1.getText()); double zahl2 =
-         * Double.parseDouble(this.eingabe2.getText());
-         * ausgabe.setText(Double.toString(summeBerechnen(zahl1,zahl2))); } if (source
-         * == this.produktButton) { double zahl1 =
-         * Double.parseDouble(this.eingabe1.getText()); double zahl2 =
-         * Double.parseDouble(this.eingabe2.getText());
-         * ausgabe.setText(Double.toString(produktBerechnen(zahl1,zahl2))); }
-         */
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    public double produktBerechnen(double x, double y) {
+        double produkt = x * y;
+        return produkt;
+    }
+
+    public double summeBerechnen(double x, double y) {
+        double summe = x + y;
+        return summe;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Welcher Knopf? = source
+        Object source = e.getSource(); 
+        if (source == this.summeButton) {
+            double zahl1 = Double.parseDouble(this.eingabe1.getText());
+            double zahl2 = Double.parseDouble(this.eingabe2.getText());
+            ausgabe.setText(Double.toString(summeBerechnen(zahl1, zahl2)));
+        }
+
+        if (source == this.produktButton) {
+            double zahl1 = Double.parseDouble(this.eingabe1.getText());
+            double zahl2 = Double.parseDouble(this.eingabe2.getText());
+            ausgabe.setText(Double.toString(produktBerechnen(zahl1, zahl2)));
+        }
     }
 
     public static void main(String[] args) {

@@ -33,7 +33,7 @@ public class Bankkonto2Gui extends JFrame implements ActionListener {
         JLabel labelKontoStand = new JLabel("Kontostand:"); // Initialisierung labelKontoStand
         JPanel hintergrundPanel = new JPanel(); // Initialisierung hintergrundPanel
         hintergrundPanel.add(labelKontoStand); // Hinzufügen des Label labelKontoStand
-        hintergrundPanel.add(this.kontoStandFeld); // Hinzufügen des
+        hintergrundPanel.add(this.kontoStandFeld); // Hinzufügen des Ist Standes
 
         JPanel betragPanel = new JPanel();
         JLabel labelBetrag = new JLabel("Betrag");

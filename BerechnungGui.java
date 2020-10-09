@@ -4,77 +4,94 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BerechnungGui extends JFrame implements ActionListener {
+public class BerechnungGui extends JFrame /* implements ActionListener */ {
 
     private JTextField eingabe1;
     private JTextField eingabe2;
     private JTextField ausgabe;
-    private JButton summe;
-    private JButton produkt;    
+    private JButton summeButton;
+    private JButton produktButton;
 
     public BerechnungGui() {
-        this.setTitle("Bankkonto2 GUI"); // Rahmentitel
+
+        this.setTitle("Berechnung Summe Produkt"); // Rahmentitel
         this.setSize(380, 280); // Größe Fenster
 
         // Eingabe
-        this.eingabe1 = new JTextField(10); 
-        this.eingabe1.setText(Double.toString());
-        this.eingabe2 = new JTextField(10); 
-        this.eingabe2.setText(Double.toString());
+        this.eingabe1 = new JTextField(10);
+        this.eingabe2 = new JTextField(10);
 
         // Button
-        this.summe = new JButton("Summe");
-        this.summe.addActionListener(this);
-        this.produkt = new JButton("Produkt");
-        this.produkt.addActionListener(this);
+        this.summeButton = new JButton("Summe");
+        // this.summeButton.addActionListener(this);
+        this.produktButton = new JButton("Produkt");
+        // this.produktButton.addActionListener(this);
 
-        // Label
-        JLabel labelZahlEins = new JLabel("Zahl:"); 
-        JLabel labelZahlZwei = new JLabel("Zahl:"); 
-        JPanel hintergrundPanel = new JPanel(); 
+        // Label + Input Feld Zahl Eins
+        JPanel hintergrundPanelZahlEins = new JPanel();
+        JLabel labelZahlEins = new JLabel("1. Zahl:");
+        hintergrundPanelZahlEins.add(labelZahlEins);
+        hintergrundPanelZahlEins.add(this.eingabe1);
 
-        hintergrundPanel.add(labelZahlEins);
-        hintergrundPanel.add(this.eingabe1); 
-        hintergrundPanel.add(labelZahlZwei);
-        hintergrundPanel.add(this.eingabe2); 
+        // Label + Input Feld Zahl Zwei
+        JPanel hintergrundPanelZahlZwei = new JPanel();
+        JLabel labelZahlZwei = new JLabel("2. Zahl:");
+        hintergrundPanelZahlZwei.add(labelZahlZwei);
+        hintergrundPanelZahlZwei.add(this.eingabe2);
 
-        JPanel betragPanel = new JPanel();
-        JLabel labelBetrag = new JLabel("asd");
-        betragPanel.add(labelBetrag);
-        betragPanel.add(this.betragFeld);
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(this.einzahlenButton);
-        buttonPanel.add(this.abhebenButton);
+        // Button 
+        JPanel hintergrundPanelButton = new JPanel();
+        
+        // Button Summe
+        this.summeButton = new JButton("Summe");        
+        hintergrundPanelButton.add(this.summeButton);
 
-        // content pane
+        // Button Produkt
+        this.produktButton = new JButton("Produkt");
+        hintergrundPanelButton.add(this.produktButton);
+
+        // Label + Input Feld Ausgabe
+        JPanel hintergrundPanelAusgabe = new JPanel();
+        JLabel labelAusgabe = new JLabel("Ausgabe:");
+        hintergrundPanelAusgabe.add(labelAusgabe);
+        //hintergrundPanelAusgabe.add(this.ausgabe);
+
+        // content pane Anbringen der erstellten Teile am Fenster
         Container contentPane = this.getContentPane();
-        contentPane.add(hintergrundPanel);
-        contentPane.add(betragPanel);
-        contentPane.add(buttonPanel);
-        contentPane.setLayout(new GridLayout(3, 1));
+        contentPane.add(hintergrundPanelZahlEins);
+        contentPane.add(hintergrundPanelZahlZwei);
+        contentPane.add(hintergrundPanelButton);
+        contentPane.add(hintergrundPanelAusgabe);
+        // contentPane.setLayout(new GridLayout(3, 1));
 
+        
         // Schließbefehl, ich klick auf X und Programm endet, auch in Console
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        /*
+          this.setDefaultCloseOperation(EXIT_ON_CLOSE); }
+         * 
+         * public double produktBerechnen(double x, double y){ double produkt = x * y;
+         * return produkt; }
+         * 
+         * public double summeBerechnen(double x, double y){ double summe = x + y;
+         * return summe; }
+         * 
+         * @Override public void actionPerformed(ActionEvent e) { Object source =
+         * e.getSource(); // Welcher Knopf? if (source == this.summeButton) { double
+         * zahl1 = Double.parseDouble(this.eingabe1.getText()); double zahl2 =
+         * Double.parseDouble(this.eingabe2.getText());
+         * ausgabe.setText(Double.toString(summeBerechnen(zahl1,zahl2))); } if (source
+         * == this.produktButton) { double zahl1 =
+         * Double.parseDouble(this.eingabe1.getText()); double zahl2 =
+         * Double.parseDouble(this.eingabe2.getText());
+         * ausgabe.setText(Double.toString(produktBerechnen(zahl1,zahl2))); }
+         */
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource(); // Welcher Knopf?
-        if (source == this.einzahlenButton) {
-            double betrag = Double.parseDouble(this.betragFeld.getText());
-            this.konto.einzahlen(betrag);
-            this.kontoStandFeld.setText(Double.toString(this.konto.getKontoStand()));
-        }
-        if (source == this.abhebenButton) {
-            double betrag = Double.parseDouble(this.betragFeld.getText());
-            try {
-                this.konto.abheben(betrag);
-            } catch (AusnahmeException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            this.kontoStandFeld.setText(Double.toString(this.konto.getKontoStand()));
-        }
+    public static void main(String[] args) {
+        // GUI Anfang
+        BerechnungGui GUI = new BerechnungGui();
+        GUI.setVisible(true);
+        // GUI Ende
     }
 
 }

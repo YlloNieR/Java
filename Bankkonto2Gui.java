@@ -22,35 +22,35 @@ public class Bankkonto2Gui extends JFrame implements ActionListener {
 
         // Kontobesitzer
         JPanel hintergrundPanelKontobesitzer = new JPanel();
-        JLabel labelKontobesitzer = new JLabel("Kontobesitzer:");
-        this.kontobesitzer.setText(this.konto.getKontobesitzer());
+        JLabel labelKontobesitzer = new JLabel("Kontobesitzer:");               
+        this.kontobesitzer.setText(konto.getKontobesitzer());
         this.kontobesitzer.setEditable(false);
         hintergrundPanelKontobesitzer.add(labelKontobesitzer);
-        hintergrundPanelKontobesitzer.add(this.kontobesitzer);
+        hintergrundPanelKontobesitzer.add(this.kontobesitzer);        
 
         // Kontostand alt / neu
         JPanel hintergrundPanelKontostand = new JPanel();
         JLabel labelKontostand = new JLabel("Kontostand:");
+        hintergrundPanelKontostand.add(labelKontostand);
         this.kontoStandFeld = new JTextField("0.0", 10); // Initialisierung kontoStandFeld Textfield
         this.kontoStandFeld.setEditable(false);
         this.kontoStandFeld.setText(Double.toString(this.konto.getKontostand()) + " Euro");
-        hintergrundPanelKontostand.add(labelKontostand);
 
         // Kontofuehrungsgebuehr
         JPanel hintergrundPanelKontofuehrungsgebuehr = new JPanel();
         JLabel labelKontofuehrungsgebuehr = new JLabel("Kontofuehrungsgebuehr:");
+        hintergrundPanelKontofuehrungsgebuehr.add(labelKontofuehrungsgebuehr);
         this.kontofuehrungsgebuehr = new JTextField(10); // Initialisierung kontoStandFeld Textfield
         this.kontofuehrungsgebuehr.setEditable(false);
         this.kontofuehrungsgebuehr.setText(Double.toString(this.konto.getKontofuehrungsgebuehr()) + " Euro");
-        hintergrundPanelKontofuehrungsgebuehr.add(labelKontofuehrungsgebuehr);
 
         // Kontozinssatz
         JPanel hintergrundPanelKontozinssatz = new JPanel();
         JLabel labelKontozinssatz = new JLabel("Kontozinssatz:");
+        hintergrundPanelKontozinssatz.add(labelKontozinssatz);
         this.kontozinssatz = new JTextField(10); // Initialisierung kontoStandFeld Textfield
         this.kontozinssatz.setEditable(false);
         this.kontozinssatz.setText(Double.toString(this.konto.getKontozinssatz()) + " %");
-        hintergrundPanelKontozinssatz.add(labelKontozinssatz);
 
         // Betrag Eingabe Feld
         JPanel hintergrundPanelBetragfeld = new JPanel();
@@ -99,7 +99,6 @@ public class Bankkonto2Gui extends JFrame implements ActionListener {
             try {
                 this.konto.abheben(betrag);
             } catch (AusnahmeException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
             this.kontoStandFeld.setText(Double.toString(this.konto.getKontostand()));

@@ -25,7 +25,7 @@ public class BankKonto2 {
     }
 
     public double getKontozinssatz() {
-        return this.kontoStand2;
+        return this.kontozinssatz2;
     }    
 
     public String kommastellen(double x) {
@@ -40,6 +40,11 @@ public class BankKonto2 {
          * " Euro wurde auf das Konto eingezahlt.\nDer neue Kontostand lautet: " +
          * kommastellen(this.kontoStand2) + " Euro");
          */
+    }
+
+    public String zweistellen(double x){
+        String str = String.format("%.2f",x);
+        return str;
     }
 
     public void abheben(double x) throws AusnahmeException {

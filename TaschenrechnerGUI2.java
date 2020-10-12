@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +16,10 @@ public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
 
     private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b0;
 
-    private String istgleich;
+    private double ersteZahl;
+    public double zweiteZahl;
+    public String operand;
+    public double ergebnis = 0;
 
     private String[] zahlArr = new String[10];
     private int zahlIndex = 0;
@@ -33,7 +37,7 @@ public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
 
         // ausgabeFeld
         JPanel hintergrundPanelausgabeFeld = new JPanel();
-        this.ausgabeFeld = new JTextField(10); // Initialisierung Textfield
+        this.ausgabeFeld = new JTextField(20); // Initialisierung Textfield
         this.ausgabeFeld.setText("");
         this.ausgabeFeld.setEditable(false);
         hintergrundPanelausgabeFeld.add(this.ausgabeFeld);
@@ -118,103 +122,87 @@ public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public double summeBerechnen(String[] arr, int laenge) {
-        double summe = 0;
-        for (int i = 0; i < arr.length; i++) {
-            summe = summe + Integer.parseInt(arr[i]);
-        }
-        return summe;
+    public double summeBerechnen(double a, double b) {
+        return a + b;
     }
 
-    public double differenzBerechnen(String[] arr, int laenge) {
-        double differenz = 0;
-        for (int i = 0; i < arr.length; i++) {
-            differenz = differenz - Integer.parseInt(arr[i]);
-        }
-        return differenz;
+    public double differenzBerechnen(double a, double b) {
+        return a - b;
     }
 
-    public double produktBerechnen(String[] arr, int laenge) {
-        double produkt = 0;
-        for (int i = 0; i < arr.length; i++) {
-            produkt = produkt * Integer.parseInt(arr[i]);
-        }
-        return produkt;
+    public double produktBerechnen(double a, double b) {
+        return a * b;
     }
 
-    public double quotientBerechnen(String[] arr, int laenge) {
-        double quotient = 0;
-        for (int i = 0; i < arr.length; i++) {
-            quotient = quotient / Integer.parseInt(arr[i]);
-        }
-        return quotient;
+    public double quotientBerechnen(double a, double b) {
+        return a / b;
     }
 
-    public void showArray(String[] arr, int laenge) {
+    public void showArray() {
         String strArray = "";
-        for (int i = 0; i < laenge + 1; i++) {
-            try {
-                strArray = strArray + Integer.parseInt(arr[i]);
-            } catch (NumberFormatException nfe) {
-                strArray = strArray + arr[i];
+        for (int i = 0; i < zahlArr.length + 1; i++) {
+            if (zahlArr[i] != null) {
+                try {
+                    strArray = strArray + Integer.parseInt(zahlArr[i]);
+                } catch (NumberFormatException nfe) {
+                    strArray = strArray + zahlArr[i];
+                }
+            } else {
+                break;
             }
+
         }
         this.eingabeLabel.setText(strArray);
     }
-    /*
-     * arr = {"1","2","3","+","1","2","="} position = 5
-     * 
-     * if (true) { ergebnis = ergebnis + (Double.parseDouble(arr[1 - 1]) +
-     * Double.parseDouble(arr[1 + 1])); ergebnis = ergebnis + (122.0 + 3.0); }
-     * ergebnis = 125.0
-     * 
-     * Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException at
-     * TaschenrechnerGUI2.berechneErgebnis(TaschenrechnerGUI2.java:201)
-     */
 
-    public String[] putIntTogether(String[] arrAlt, int position, String operand) {
-        String arrNeu[] = new String[10];
+    public void putIntTogetherErste(int position) {
         String summeStr = "";
+
         for (int i = 0; i < position; i++) {
-            summeStr = summeStr + arrAlt[i];
+            summeStr = summeStr + zahlArr[i];
         }
-        for (int i = 0; i < arrNeu.length; i++)
-            if (arrNeu[i] == null) {
-                arrNeu[i] = summeStr;
-                arrNeu[i + 1] = operand;
-                break;
-            }
-        for (int i = 0; i < arrNeu.length; i++) {
-            System.out.print(arrNeu[i]);
+
+        ersteZahl = Integer.parseInt(summeStr);
+
+        for (int i = 0; i < zahlArr.length; i++) {
+            zahlArr[i] = null;
         }
-        return arrNeu;
     }
 
-    public void berechneErgebnis(String[] arr, int position) {
-        double ergebnis = 0;
+    public void putIntTogetherZweite(int position) {
+        String summeStr = "";
+
+        for (int i = 0; i < position; i++) {
+            summeStr = summeStr + zahlArr[i];
+        }
+
+        zweiteZahl = Integer.parseInt(summeStr);
+
+        for (int i = 0; i < zahlArr.length; i++) {
+            zahlArr[i] = null;
+        }
+    }
+
+    public double berechneErgebnis() {
         String summe = "+";
         String differenz = "-";
         String produkt = "*";
         String quotient = "/";
-        System.out.println(ergebnis);
 
-        /*
-         * arr = {"122","+","3","*","2","=","0"} position = 5
-         * 
-         * if (true) { ergebnis = ergebnis + (Double.parseDouble(arr[1 - 1]) +
-         * Double.parseDouble(arr[1 + 1])); ergebnis = ergebnis + (122.0 + 3.0); }
-         * ergebnis = 125.0
-         * 
-         * Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException at
-         * TaschenrechnerGUI2.berechneErgebnis(TaschenrechnerGUI2.java:201)
-         */
-
-        for (int i = 0; i < position; i++) {
-            if (arr[i].equals(summe)) {
-                ergebnis = ergebnis + (Double.parseDouble(arr[i - 1]) + Double.parseDouble(arr[i + 1]));
-            }
+        if (operand.equals(summe)) {
+            this.ergebnis = summeBerechnen(ersteZahl, zweiteZahl);
         }
-        System.out.println(ergebnis);
+        if (operand.equals(differenz)) {
+            this.ergebnis = differenzBerechnen(ersteZahl, zweiteZahl);
+        }
+        if (operand.equals(produkt)) {
+            this.ergebnis = produktBerechnen(ersteZahl, zweiteZahl);
+        }
+        if (operand.equals(quotient)) {
+            this.ergebnis = quotientBerechnen(ersteZahl, zweiteZahl);
+        }
+        return this.ergebnis;
+
     }
 
     @Override
@@ -224,87 +212,115 @@ public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
 
         if (source == this.b0) {
             zahlArr[zahlIndex] = this.b0.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b1) {
             zahlArr[zahlIndex] = this.b1.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b2) {
             zahlArr[zahlIndex] = this.b2.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b3) {
             zahlArr[zahlIndex] = this.b3.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b4) {
             zahlArr[zahlIndex] = this.b4.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b5) {
             zahlArr[zahlIndex] = this.b5.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b6) {
             zahlArr[zahlIndex] = this.b6.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b7) {
             zahlArr[zahlIndex] = this.b7.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b8) {
             zahlArr[zahlIndex] = this.b8.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
         if (source == this.b9) {
             zahlArr[zahlIndex] = this.b9.getText();
-            showArray(zahlArr, zahlIndex);
+            showArray();
             zahlIndex++;
+            this.ausgabeFeld.setText("");
         }
 
         // Operationen
 
         if (source == this.additionButton) {
             zahlArr[zahlIndex] = this.additionButton.getText();
-            showArray(zahlArr, zahlIndex);
-            putIntTogether(zahlArr, zahlIndex, zahlArr[zahlIndex]);
-            zahlIndex++;
+            showArray();
+            operand = zahlArr[zahlIndex];
+            if (this.ausgabeFeld.getText().equals("")) {
+                putIntTogetherErste(zahlIndex);
+            }
+            zahlIndex = 0;
         }
         if (source == this.subtraktionButton) {
             zahlArr[zahlIndex] = this.subtraktionButton.getText();
-            showArray(zahlArr, zahlIndex);
-            putIntTogether(zahlArr, zahlIndex, zahlArr[zahlIndex]);
-            zahlIndex++;
+            showArray();
+            operand = zahlArr[zahlIndex];
+
+            if (this.ausgabeFeld.getText().equals("")) {
+                putIntTogetherErste(zahlIndex);
+            }
+            zahlIndex = 0;
         }
         if (source == this.multiplikationButton) {
             zahlArr[zahlIndex] = this.multiplikationButton.getText();
-            showArray(zahlArr, zahlIndex);
-            putIntTogether(zahlArr, zahlIndex, zahlArr[zahlIndex]);
-            zahlIndex++;
+            showArray();
+            operand = zahlArr[zahlIndex];
+
+            if (this.ausgabeFeld.getText().equals("")) {
+                putIntTogetherErste(zahlIndex);
+            }
+            zahlIndex = 0;
         }
         if (source == this.divisionButton) {
             zahlArr[zahlIndex] = this.divisionButton.getText();
-            showArray(zahlArr, zahlIndex);
-            putIntTogether(zahlArr, zahlIndex, zahlArr[zahlIndex]);
-            zahlIndex++;
+            showArray();
+            operand = zahlArr[zahlIndex];
+
+            if (this.ausgabeFeld.getText().equals("")) {
+                putIntTogetherErste(zahlIndex);
+            }
+            zahlIndex = 0;
         }
         if (source == this.ergebnisButton) {
             zahlArr[zahlIndex] = this.ergebnisButton.getText();
-            berechneErgebnis(putIntTogether(zahlArr, zahlIndex, zahlArr[zahlIndex]), zahlIndex);
+            putIntTogetherZweite(zahlIndex);
 
-            this.istgleich = "das Ergebnis ist ...";
-            this.eingabeLabel.setText(istgleich);
+            this.eingabeLabel.setText("das Ergebnis ist ...");
+            this.ausgabeFeld.setText(Double.toString(berechneErgebnis()));
+            ersteZahl = this.ergebnis;
+            zweiteZahl = 0;
+            zahlIndex = 0;
         }
     }
 

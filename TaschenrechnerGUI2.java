@@ -161,6 +161,16 @@ public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
         }
         this.eingabeLabel.setText(strArray);
     }
+    /*
+     * arr = {"1","2","3","+","1","2","="} position = 5
+     * 
+     * if (true) { ergebnis = ergebnis + (Double.parseDouble(arr[1 - 1]) +
+     * Double.parseDouble(arr[1 + 1])); ergebnis = ergebnis + (122.0 + 3.0); }
+     * ergebnis = 125.0
+     * 
+     * Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException at
+     * TaschenrechnerGUI2.berechneErgebnis(TaschenrechnerGUI2.java:201)
+     */
 
     public String[] putIntTogether(String[] arrAlt, int position, String operand) {
         String arrNeu[] = new String[10];
@@ -195,8 +205,8 @@ public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
          * Double.parseDouble(arr[1 + 1])); ergebnis = ergebnis + (122.0 + 3.0); }
          * ergebnis = 125.0
          * 
-         * Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
-         * at TaschenrechnerGUI2.berechneErgebnis(TaschenrechnerGUI2.java:201)
+         * Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException at
+         * TaschenrechnerGUI2.berechneErgebnis(TaschenrechnerGUI2.java:201)
          */
 
         for (int i = 0; i < position; i++) {

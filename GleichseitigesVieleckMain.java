@@ -18,7 +18,7 @@ public class GleichseitigesVieleckMain {
     }
 
     public static double getInnenWinkel(int seitenanzahl) {
-        return ((seitenanzahl-2)*(Math.PI/seitenanzahl));
+        return (double) (seitenanzahl-2) / seitenanzahl * 180;
     }
 
     public static void main(String[] args) {

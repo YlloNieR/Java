@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Toolkit;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Animation extends JPanel implements KeyListener {
     // Timer tm = new Timer(5, this);
@@ -62,7 +62,7 @@ public class Animation extends JPanel implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub        
+        // TODO Auto-generated method        
     }
 
     @Override

@@ -1,9 +1,10 @@
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.event.*;
 
 
-public class RaumSchiff extends Sprites{
+public class RaumSchiff extends Sprites implements KeyListener{
 
     public int geschwX;
     public int geschwY;
@@ -69,7 +70,7 @@ public class RaumSchiff extends Sprites{
     }
 
     @Override
-    public void keyTyped(KeyEvent keyEvent){
+    public void keyTyped(KeyEvent keyEvent) {
 
     }
 

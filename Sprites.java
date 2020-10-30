@@ -11,12 +11,6 @@ public class Sprites {
     protected boolean sichtbar;
     protected Image bild;
 
-    /*    
-    Die Methode loadImage bekommt den Namen des Bildes als Argument, und lädt das Bild mit 
-    Hilfe eines ImageIcons in das Attribute bild.ImageIcon imic = new ImageIcon(imageName);bild = imic.getImage();
-    Zuletzt schreiben Sie noch einen besonderen Getter, der uns die Dimension des Bildes als Rechteck zurückgibt. 
-    */
-
     public int getXKoordinate(){
         return this.xKoordinate;
     }

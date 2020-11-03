@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
+public class TaschenrechnerGUI extends JFrame implements ActionListener {
 
     private JTextField ausgabeFeld;
     private JLabel eingabeLabel;
@@ -24,7 +24,7 @@ public class TaschenrechnerGUI2 extends JFrame implements ActionListener {
     private String[] zahlArr = new String[10];
     private int zahlIndex = 0;
 
-    public TaschenrechnerGUI2() {
+    public TaschenrechnerGUI() {
 
         this.setTitle("mein Taschenrechner"); // Rahmentitel
         this.setSize(350, 350); // Größe Fenster

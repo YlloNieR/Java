@@ -1,12 +1,13 @@
 /*
-Als Sprites werden Objekte bezeichnet, die mit einem Bild oder einer
-Animation dargestellt werden. In unserem Beispiel sind Sprites alle Objekte,
-die bewegbar sind.
-*/
+ *Als Sprites werden Objekte bezeichnet, die mit einem Bild oder einer
+ *Animation dargestellt werden. Alle Objekte, die bewegbar sind.
+ */
+
 import javax.swing.ImageIcon;
 import java.awt.Image;
+import java.awt.Rectangle;
 
-abstract class Sprite{    
+public abstract class Sprite{    
     protected int startPosX;
     protected int startPosY;
     protected int sizeWidth;
@@ -45,6 +46,10 @@ abstract class Sprite{
     //damit der loadimage void sichtbar wird
     public Image getImage(){
         return this.img;
+    }
+
+    public Rectangle getBounds(){
+        return new Rectangle (this.startPosX,this.startPosY,this.sizeWidth,this.sizeHeight);
     }
 
     //Bei Aufruf wird aus 1 = 0, danach 0 = 1

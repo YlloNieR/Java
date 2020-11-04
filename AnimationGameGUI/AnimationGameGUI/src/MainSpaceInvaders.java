@@ -7,7 +7,7 @@ public class MainSpaceInvaders extends JFrame {
         Window wd = new Window();        
         add(wd);
         setResizable(false);
-        pack();
+        pack(); //Damit kann der Inhalt mit der gewünschten Größe angezeigt werden
         setTitle("Space Invaders");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

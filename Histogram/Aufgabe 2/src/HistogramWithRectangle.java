@@ -5,11 +5,10 @@ public class HistogramWithRectangle {
     // 7 first letters and spaces
     // 3 rows down
     // public static char[][] charArr = new char[7+11][3+10];
-    public static char[][] charArr = new char[5][7];    
+    public static char[][] charArr = new char[5][12];
     public static int charArrLengthXColumn = charArr[0].length;
     public static int charArrLengthYRow = charArr.length;
     public static int rowCount = 0;
-
 
     public static void propertiesOfArrays(double[] data) {
         System.out.print("\nWerte des " + numberOfArrays + ". Arrays: ");
@@ -80,22 +79,22 @@ public class HistogramWithRectangle {
             tmp2 = roundNumber(data[j]);
             if (tmp1 == tmp2) {
                 System.out.print("x");
-                if(x < charArrLengthXColumn){
+                if (x < charArrLengthXColumn) {
                     inputChar(x, y, 'x');
                     x++;
-                }                    
+                }
                 data[j]--;
             } else {
                 System.out.print(" ");
-                if(x < charArrLengthXColumn){
+                if (x < charArrLengthXColumn) {
                     inputChar(x, y, ' ');
                     x++;
                 }
             }
         }
-        if(rowCount<charArrLengthXColumn){
+        if (rowCount < charArrLengthXColumn) {
             rowCount++;
-        }        
+        }
     }
 
     public static int biggestNumber(double[] data) {
@@ -118,15 +117,17 @@ public class HistogramWithRectangle {
     }
 
     public static void showCharArray() {
-        
+
         System.out.println("number of columns: " + (charArrLengthXColumn + 1));
         System.out.println("number of rows: " + (charArrLengthYRow + 1));
+        System.out.println();
 
         for (int y = 0; y < charArrLengthYRow; y++) {
+            System.out.print("\n" + y);
+
             for (int x = 0; x < charArrLengthXColumn; x++) {
                 System.out.print(charArr[y][x]);
             }
-            System.out.print("\n");
         }
 
     }
@@ -134,34 +135,133 @@ public class HistogramWithRectangle {
     public static void checkCellsForX() {
         int charArrLengthXColumn = charArr[0].length;
         int charArrLengthYRow = charArr.length;
-        boolean fristRule = false;
-        boolean secondRule = false;
+        int tmp = 0;
+        int countCharXInSection = 0;
+        int countCharXInRow = 0;
 
         for (int y = 0; y < charArrLengthYRow - 1; y++) {
             for (int x = 0; x < charArrLengthXColumn - 1; x++) {
-                if ((charArr[y][x] == charArr[y][x + 1]) && charArr[y][x] == 'x') {
-                    charArr[y][x] = 'o';
-                    charArr[y][x + 1] = 'o';
+                if ((charArr[y][x] == 'x')) {
+                    countCharXInSection++;
+                    if (charArr[y][x + 1] == ' ') {
+                        if (countCharXInRow < countCharXInSection) {
+                            countCharXInRow = countCharXInSection;
+                        }
+                        countCharXInSection = 0;
+                    }
                 }
+            }
+            if (tmp < countCharXInRow) {
+                tmp = countCharXInRow;
+                countCharXInRow = 0;
+            }
+        }
+        System.out.println("\nmax number of x in one row: " + tmp);
+    }
+
+    public static void option1() {
+        System.out.println("option1");
+        int counter = charArrLengthYRow;
+        System.out.print("Wert " + (counter + 1) + "|");
+
+        for (int y = 0; y < charArrLengthYRow; y++) {
+            System.out.print("\n");
+
+            if (counter % 2 == 0) {
+                System.out.print("     " + counter + "|");
+            } else {
+                System.out.print("      |");
+            }
+            counter--;
+
+            /* option 1 begin */
+            for (int x = 0; x < charArrLengthXColumn; x++) {
+                if (x > 2 && x < 7 && y > 1) {
+                    charArr[y][x] = 'o';
+                    System.out.print(charArr[y][x]);
+                } else {
+                    System.out.print(charArr[y][x]);
+                }
+            }
+            /* option 1 end */
+            if (y == charArrLengthYRow - 1) {
+                System.out.print("\n");
             }
         }
 
-        /*
-         * for (int y = 0; y < charArrLengthYRow-1; y++) { for (int x = 0; x <
-         * charArrLengthXColumn-1; x++){ if(charArr[y][x] == charArr[y][x+1]){
-         * if(charArr[y+1][x] == charArr[y+1][x+1]){ charArr[y][x] = 'o';
-         * charArr[y][x+1] = 'o'; charArr[y+1][x] = 'o'; charArr[y+1][x+1] = 'o'; } } }
-         * }
-         */
+        System.out.println("      +--3--6--9--");
+    }
+
+    public static void option2() {
+        System.out.println("option2");
+        int counter = charArrLengthYRow;
+        System.out.print("Wert " + (counter + 1) + "|");
+
+        for (int y = 0; y < charArrLengthYRow; y++) {
+            System.out.print("\n");
+
+            if (counter % 2 == 0) {
+                System.out.print("     " + counter + "|");
+            } else {
+                System.out.print("      |");
+            }
+            counter--;
+
+            for (int x = 0; x < charArrLengthXColumn; x++) {
+                if (x > 0 && x < 7 && y > 2) {
+                    charArr[y][x] = 'o';
+                    System.out.print(charArr[y][x]);
+                } else {
+                    System.out.print(charArr[y][x]);
+                }
+            }
+            if (y == charArrLengthYRow - 1) {
+                System.out.print("\n");
+            }
+        }
+
+        System.out.println("      +--3--6--9--");
+    }
+
+    public static void option3() {
+        System.out.println("option3");
+        int counter = charArrLengthYRow;
+        System.out.print("Wert " + (counter + 1) + "|");
+
+        for (int y = 0; y < charArrLengthYRow; y++) {
+            System.out.print("\n");
+
+            if (counter % 2 == 0) {
+                System.out.print("     " + counter + "|");
+            } else {
+                System.out.print("      |");
+            }
+            counter--;
+
+            for (int x = 0; x < charArrLengthXColumn; x++) {
+                if (x > 3 && x < 7 && y > 0) {
+                    charArr[y][x] = 'o';
+                    System.out.print(charArr[y][x]);
+                } else {
+                    System.out.print(charArr[y][x]);
+                }
+            }
+            if (y == charArrLengthYRow - 1) {
+                System.out.print("\n");
+            }
+        }
+
+        System.out.println("      +--3--6--9--");
+        
     }
 
     public static void main(String[] args) {
         double[] data1 = { 1.1, 1.9, 2.2, 3.0, 5.1, 5.2, 4.3, 0.1, 4.5, 0.1, 4.5, 5.1 };
 
         histogramVersion1(data1);
+        System.out.print("\n");
 
-        //checkCellsForX();
+        option3();
 
-        showCharArray();
     }
 }

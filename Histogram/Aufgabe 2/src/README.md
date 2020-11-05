@@ -1,4 +1,4 @@
-## Aufgabe 1
+## Aufgabe 2
 ```
 output:
 
@@ -14,19 +14,30 @@ Wert 6|
       +--3--6--9--
                Punkt
 
-Werte des 2. Arrays: 8.0, 6.0, 4.0, 1.0, 2.0, 3.0, 4.0, 9.0
-Laenge: 8
+option1
+Wert 6|
+      |    xx     x
+     4|    xxx x xx
+      |   oooo x xx
+     2| xxoooo x xx
+      |xxxoooo x xx
+      +--3--6--9--
 
-Wert  |
-     9|       x
-      |x      x
-     7|x      x
-      |xx     x
-     5|xx     x
-      |xxx   xx
-     3|xxx  xxx
-      |xxx xxxx
-     1|xxxxxxxx
-      +1-3-5-7-
-          Punkt
+option2
+Wert 6|
+      |    xx     x
+     4|    xxx x xx
+      |   xxxx x xx
+     2| oooooo x xx
+      |xoooooo x xx
+      +--3--6--9--
+
+option3
+Wert 6|
+      |    xx     x
+     4|    ooo x xx
+      |   xooo x xx
+     2| xxxooo x xx
+      |xxxxooo x xx
+      +--3--6--9--
 ```

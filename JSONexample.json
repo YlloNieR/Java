@@ -1,0 +1,15 @@
+{
+  "name": "Petzold",
+  "alter": "43",
+  "kinder": false,
+  "anzahl": null,
+  "führerschein": true,
+  "beruf_ausbildung": [
+    {
+      "name": "Maler"
+    },
+    {
+      "name": "Bäcker"
+    }
+  ]
+}

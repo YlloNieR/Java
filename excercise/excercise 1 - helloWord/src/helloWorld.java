@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class helloWorld {
+
     public static void main(String[] args) {
 
         // 1. part of exercise
@@ -36,17 +37,17 @@ public class helloWorld {
         System.out.println("Hier steht eine Kommazahl(zahl4) 1.5:\n" + zahl4float);
         System.out.println("Hier wird der Kommazahl der Rest abgeschnitten:\n" + (int) zahl4);
         
-        char c = 'F'; 
-        System.out.println("Hier steht ein F [in chat]\n" + c);
-        
-        String motivation = new String(" 5 lines to go ;) "); 
+        char c = 'F';
+        System.out.println("Hier steht ein F [in " + ((Object)c).getClass().getName() +"]\n" + c);
+
+        String motivation = new String(" 5 lines to go ;) ");
         System.out.println("\n" + motivation + "\n");
 
         boolean wahrheitswert = ergebnis < zahl3;
         System.out.println("Ist das Ergebnis kleiner als zahl3?:\n" + wahrheitswert);
 
         System.out.println("Gut gemacht!");
-        
+
         input.close();
     }
 }

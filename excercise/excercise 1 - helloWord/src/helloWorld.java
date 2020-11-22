@@ -14,7 +14,6 @@ public class helloWorld {
         // 2. part of exercise
         Scanner input = new Scanner(System.in);
         System.out.println("Hallo, wie ist Ihr Name?");
-
         String name = input.next();
         System.out.println("Hallo " + name);
 

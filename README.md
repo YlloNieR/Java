@@ -4,5 +4,10 @@
 ```
 java --version
 ```
-2. look for newest version @ [Open JDK](https://jdk.java.net/)
+2. look for newest version @ [jdk.java.net Download](https://jdk.java.net/)
 3. install
+
+# compile & output
+```
+javac helloWorld.java & java helloWorld
+```

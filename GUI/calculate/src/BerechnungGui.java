@@ -73,7 +73,7 @@ public class BerechnungGui extends JFrame implements ActionListener {
         contentPane.add(hintergrundPanelAusgabe);
         contentPane.add(hintergrundPanelMeldung);
         // 4 Zeilen mit immer einer Spalte
-        contentPane.setLayout(new GridLayout(5, 1));
+        contentPane.setLayout(new GridLayout(5, 2));
 
         // Schließbefehl, ich klick auf X und Programm endet, auch in Console
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

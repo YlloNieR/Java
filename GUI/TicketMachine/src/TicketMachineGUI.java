@@ -5,104 +5,116 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TicketMachineGUI extends JFrame {
+public class TicketMachineGUI extends JFrame implements ActionListener {
 
-    // column left
-    private JLabel balanceStatusLabel;
     private JTextField balanceStatusTextfield;
-
     private JButton insertOneCentCoinButton;
     private JButton insertTwoCentCoinButton;
     private JButton insertFiveCentCoinButton;
     private JButton insertTenCentCoinButton;
-    private JButton refundButton;
-    private JButton getTicketButton;
-
-    // column right
-    private JLabel internalStorageLabel;
-
-    private JLabel oneCentCoinsLabel;
+    private JButton RefundButton;
+    private JButton GetTicketButton;
     private JTextField oneCentCoinsTextfield;
-    private JLabel twoCentCoinsLabel;
     private JTextField twoCentCoinsTextfield;
-    private JLabel fiveCentCoinsLabel;
     private JTextField fiveCentCoinsTextfield;
-    private JLabel tenCentCoinsLabel;
     private JTextField tenCentCoinsTextfield;
 
-    public TicketMachineGUI() {
-        
-        this.setTitle("Ticket Machine"); // Titel
-        this.setSize(380, 300);
+    public int balanceCount = 0;
+
+    public TicketMachineGUI() {        
+        this.setTitle("Ticket Machine");
+        this.setSize(280, 300);
       
-        // column left
-        JPanel backgroundPanelBalanceStatusLabel = new JPanel();
-        JLabel balanceStatusLabel = new JLabel("Balance:");
-        this.balanceStatusTextfield = new JTextField(10);
+        // First
+        JPanel backgroundPanelFirst = new JPanel();
+        JLabel balanceStatusLabel = new JLabel("Balance:");        
+        this.balanceStatusTextfield = new JTextField(2);
+        this.balanceStatusTextfield.setText(Integer.toString(balanceCount));        
         this.balanceStatusTextfield.setEditable(false);
-        backgroundPanelBalanceStatusLabel.add(this.balanceStatusLabel);
-        backgroundPanelBalanceStatusLabel.add(this.balanceStatusTextfield);
-
-        JPanel backgroundPanelButtons = new JPanel();
-        this.insertOneCentCoinButton = new JButton("Insert 1Ct Coin");
-        //this.insertOneCentCoinButton.addActionListener(this);
-
-        this.insertTwoCentCoinButton = new JButton("Insert 2Ct Coin");
-        //this.insertTwoCentCoinButton.addActionListener(this);
-        
-        this.insertFiveCentCoinButton = new JButton("Insert 5Ct Coin");
-        //this.insertFiveCentCoinButton.addActionListener(this);
-
-        this.insertTenCentCoinButton = new JButton("Insert 10Ct Coin");
-        //this.insertTenCentCoinButton.addActionListener(this);
-
-        this.refundButton = new JButton("Refund");
-        //this.refundButton.addActionListener(this);
-
-        this.getTicketButton = new JButton("Get Ticket");
-        //this.getTicketButton.addActionListener(this);
-
-        backgroundPanelButtons.add(this.insertOneCentCoinButton);
-        backgroundPanelButtons.add(this.insertTwoCentCoinButton);
-        backgroundPanelButtons.add(this.insertFiveCentCoinButton);
-        backgroundPanelButtons.add(this.insertTenCentCoinButton);
-        backgroundPanelButtons.add(this.refundButton);
-        backgroundPanelButtons.add(this.getTicketButton);
-
-        // column right
-        JPanel backgroundPanelInternalStorage = new JPanel();
         JLabel internalStorageLabel = new JLabel("Internal Storage");
-        backgroundPanelInternalStorage.add(this.internalStorageLabel);
+ 
+        backgroundPanelFirst.add(balanceStatusLabel);
+        backgroundPanelFirst.add(this.balanceStatusTextfield);
+        backgroundPanelFirst.add(internalStorageLabel);
 
-        JPanel backgroundPanelCoinCounter = new JPanel();
+        // Second
+        JPanel backgroundPanelSecond = new JPanel();        
+        this.insertOneCentCoinButton = new JButton("Insert 1Ct Coin");
         JLabel oneCentCoinsLabel = new JLabel("1 Ct Coins:");
-        this.oneCentCoinsTextfield = new JTextField(2);        
-        backgroundPanelCoinCounter.add(this.oneCentCoinsLabel);
-        backgroundPanelCoinCounter.add(this.oneCentCoinsTextfield);
+        this.oneCentCoinsTextfield = new JTextField(2);  
+        this.oneCentCoinsTextfield.setEditable(false);
 
+
+        backgroundPanelSecond.add(this.insertOneCentCoinButton);
+        backgroundPanelSecond.add(oneCentCoinsLabel);
+        backgroundPanelSecond.add(this.oneCentCoinsTextfield);
+
+        // Third
+        JPanel backgroundPanelThird = new JPanel();
+        this.insertTwoCentCoinButton = new JButton("Insert 2Ct Coin");
         JLabel twoCentCoinsLabel = new JLabel("2 Ct Coins:");
         this.twoCentCoinsTextfield = new JTextField(2);
-        backgroundPanelCoinCounter.add(this.twoCentCoinsLabel);
-        backgroundPanelCoinCounter.add(this.twoCentCoinsTextfield);
+        this.twoCentCoinsTextfield.setEditable(false);
 
+        backgroundPanelThird.add(this.insertTwoCentCoinButton);
+        backgroundPanelThird.add(twoCentCoinsLabel);
+        backgroundPanelThird.add(this.twoCentCoinsTextfield);
+
+        // Fourth
+        JPanel backgroundPanelFourth = new JPanel();
+        this.insertFiveCentCoinButton = new JButton("Insert 5Ct Coin");
         JLabel fiveCentCoinsLabel = new JLabel("5 Ct Coins:");
         this.fiveCentCoinsTextfield = new JTextField(2);
-        backgroundPanelCoinCounter.add(this.fiveCentCoinsLabel);
-        backgroundPanelCoinCounter.add(this.fiveCentCoinsTextfield);
+        this.fiveCentCoinsTextfield.setEditable(false);
 
+        backgroundPanelFourth.add(this.insertFiveCentCoinButton);
+        backgroundPanelFourth.add(fiveCentCoinsLabel);
+        backgroundPanelFourth.add(this.fiveCentCoinsTextfield);
+
+        // Fifth
+        JPanel backgroundPanelFifth = new JPanel();
+        this.insertTenCentCoinButton = new JButton("Insert 10Ct Coin");
         JLabel tenCentCoinsLabel = new JLabel("10 Ct Coins:");
         this.tenCentCoinsTextfield = new JTextField(2);
-        backgroundPanelCoinCounter.add(this.tenCentCoinsLabel);
-        backgroundPanelCoinCounter.add(this.tenCentCoinsTextfield);
+        this.tenCentCoinsTextfield.setEditable(false);
 
+        backgroundPanelFifth.add(this.insertTenCentCoinButton);
+        backgroundPanelFifth.add(tenCentCoinsLabel);
+        backgroundPanelFifth.add(this.tenCentCoinsTextfield);
+
+        // Sixth
+        JPanel backgroundPanelSixth = new JPanel();
+        this.RefundButton = new JButton("Refund");
+        backgroundPanelSixth.add(this.RefundButton);
+
+        // Seventh
+        JPanel backgroundPanelSeventh = new JPanel();
+        this.GetTicketButton = new JButton("Get Ticket");
+        backgroundPanelSeventh.add(this.GetTicketButton);
+
+         // content pane
         Container contentPane = this.getContentPane();
-        contentPane.add(backgroundPanelBalanceStatusLabel);
-        contentPane.add(backgroundPanelButtons);
-        contentPane.add(backgroundPanelInternalStorage);
-        contentPane.add(backgroundPanelCoinCounter);
-        contentPane.setLayout(new GridLayout(4, 2));
+        contentPane.add(backgroundPanelFirst);
+        contentPane.add(backgroundPanelSecond);
+        contentPane.add(backgroundPanelThird);
+        contentPane.add(backgroundPanelFourth);
+        contentPane.add(backgroundPanelFifth);
+        contentPane.add(backgroundPanelSixth);
+        contentPane.add(backgroundPanelSeventh);
+        contentPane.setLayout(new GridLayout(7,0));
+
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+        Object source = e.getSource();
+        if(source == this.insertOneCentCoinButton){
+            this.balanceCount = this.balanceCount+1;
+        }
+
     }
 }

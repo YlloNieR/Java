@@ -34,7 +34,7 @@ public class TicketMachineGUI extends JFrame {
     private JTextField tenCentCoinsTextfield;
 
     public TicketMachineGUI() {
-
+        
         this.setTitle("Ticket Machine"); // Titel
         this.setSize(380, 300);
       

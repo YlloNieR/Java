@@ -35,6 +35,5 @@ public class BDayCalculator {
             daysUntilBirthday = (((myBirthdayMonth - month) * days) - today) + myBirthdayDay;
             System.out.println("Mein Geburtstag ist in " + daysUntilBirthday + " Tagen.");
         }
-
     }
 }

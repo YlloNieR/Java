@@ -47,7 +47,7 @@ a / b = 0
 a % b = 2
 ```
 
-## FConsumption.java
+## EConsumption.java
 ```
 Please enter the distance (in km): 0,5
 Your fuelconsumption is 0,0340 liters per kilometer
@@ -70,7 +70,7 @@ Your oilconsumption costs 1,18 Euro
 Please enter the distance (in km):
 ```
 
-## GPizzaPriceCalculator.java
+## FPizzaPriceCalculator.java
 ```
 How many pizza topping do you want at this pizza?
 2

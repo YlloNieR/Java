@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class GPizzaPriceCalculator {
+public class FPizzaPriceCalculator {
     public static String twoDigitsAtferComma(double number) {
         String str = String.format("%.2f", number);
         return str;

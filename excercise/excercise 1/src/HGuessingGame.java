@@ -16,16 +16,16 @@ public class HGuessingGame{
         System.out.print("guess the number (range 0-10):");
         int guess = s.nextInt();        
         while(guess != solution){
-            System.out.println(countTries+". Try");
+            System.out.println(countTries+". try");
             System.out.println("!wrong number!");
             countTries++;
             System.out.print("guess again (range 0-10):");
             guess = s.nextInt();
         }
         System.out.println("!!!Congratulation!!!");
-        System.out.println("You needed "+countTries+". tries!");
         System.out.println("Your guess is right!!!");
-
+        System.out.println("You needed "+countTries+". tries!");
+        s.close();
 
     }
 }

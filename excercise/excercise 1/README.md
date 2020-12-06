@@ -100,8 +100,8 @@ VAR1 = 3.7
 VAR2 = 9.6
 VAR3 = 3.4
 sorting...
-VAR1 = 3.7
-VAR2 = 3.4
+VAR1 = 3.4
+VAR2 = 3.7
 VAR3 = 9.6
 ```
 

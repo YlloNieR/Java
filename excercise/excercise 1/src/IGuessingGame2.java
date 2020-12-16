@@ -10,8 +10,6 @@ public class IGuessingGame2 {
         int solution = randomNumber.nextInt(11);
         
         int countTries;
-        //double solution = 4;
-
 
         System.out.println("##Guessing Game##");
         System.out.println("You got 5 tries!");
@@ -31,7 +29,5 @@ public class IGuessingGame2 {
         }
         System.out.println("!wrong number!");
         System.out.println("You needed "+countTries+". tries and have no try left!");
-
-
     }
 }

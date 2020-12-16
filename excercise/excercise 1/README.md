@@ -108,31 +108,39 @@ VAR3 = 9.6
 ## HGuessingGame.java
 ```
 ##Guessing Game##
-guess the number (range 0-10):2
-1. Try
+guess the number (range 0-10):1
+1. try
+!wrong number!
+guess again (range 0-10):2
+2. try
 !wrong number!
 guess again (range 0-10):3
-2. Try
 !wrong number!
 guess again (range 0-10):4
-3. Try
+4. try
 !wrong number!
 guess again (range 0-10):5
-4. Try
+5. try
 !wrong number!
 guess again (range 0-10):6
-5. Try
+6. try
 !wrong number!
 guess again (range 0-10):7
-6. Try
+7. try
 !wrong number!
 guess again (range 0-10):8
-7. Try
+8. try
 !wrong number!
 guess again (range 0-10):9
+9. try
+!wrong number!
+guess again (range 0-10):0
+10. try
+!wrong number!
+guess again (range 0-10):10
 !!!Congratulation!!!
-You neeeded 8. tries!
 Your guess is right!!!
+You needed 11. tries!
 ```
 
 ## IGuessingGame2.java
@@ -174,7 +182,7 @@ You needed 6. tries and have no try left!
 11. month, account balance: 3300,00 Euro
 12. month, account balance: 3600,00 Euro
 
-1. year , account balance: 3726,00 Euro
+1. year, account balance: 3726,00 Euro
 
 13. month, account balance: 4026,00 Euro
 14. month, account balance: 4326,00 Euro
@@ -189,7 +197,7 @@ You needed 6. tries and have no try left!
 23. month, account balance: 7026,00 Euro
 24. month, account balance: 7326,00 Euro
 
-2. year , account balance: 7582,41 Euro
+2. year, account balance: 7582,41 Euro
 
 25. month, account balance: 7882,41 Euro
 26. month, account balance: 8182,41 Euro
@@ -204,7 +212,7 @@ You needed 6. tries and have no try left!
 35. month, account balance: 10882,41 Euro
 36. month, account balance: 11182,41 Euro
 
-3. year , account balance: 11573,79 Euro
+3. year, account balance: 11573,79 Euro
 
 37. month, account balance: 11873,79 Euro
 38. month, account balance: 12173,79 Euro
@@ -219,7 +227,7 @@ You needed 6. tries and have no try left!
 47. month, account balance: 14873,79 Euro
 48. month, account balance: 15173,79 Euro
 
-4. year , account balance: 15704,88 Euro
+4. year, account balance: 15704,88 Euro
 
 49. month, account balance: 16004,88 Euro
 50. month, account balance: 16304,88 Euro
@@ -234,7 +242,7 @@ You needed 6. tries and have no try left!
 59. month, account balance: 19004,88 Euro
 60. month, account balance: 19304,88 Euro
 
-5. year , account balance: 19980,55 Euro
+5. year, account balance: 19980,55 Euro
 ```
 
 ## KBuildingLoanAgreement2.java
@@ -252,7 +260,7 @@ You needed 6. tries and have no try left!
 11. month, account balance: 3300,00 Euro
 12. month, account balance: 3600,00 Euro
 
-1. year , account balance: 3726,00 Euro
+1. year, account balance: 3726,00 Euro
 
 13. month, account balance: 4026,00 Euro
 14. month, account balance: 4326,00 Euro
@@ -267,7 +275,7 @@ You needed 6. tries and have no try left!
 23. month, account balance: 7026,00 Euro
 24. month, account balance: 7326,00 Euro
 
-2. year , account balance: 7582,41 Euro
+2. year, account balance: 7582,41 Euro
 
 25. month, account balance: 7882,41 Euro
 26. month, account balance: 8182,41 Euro
@@ -282,7 +290,7 @@ You needed 6. tries and have no try left!
 35. month, account balance: 10882,41 Euro
 36. month, account balance: 11182,41 Euro
 
-3. year , account balance: 11573,79 Euro
+3. year, account balance: 11573,79 Euro
 
 37. month, account balance: 11873,79 Euro
 38. month, account balance: 12173,79 Euro
@@ -297,7 +305,7 @@ You needed 6. tries and have no try left!
 47. month, account balance: 14873,79 Euro
 48. month, account balance: 15173,79 Euro
 
-4. year , account balance: 15704,88 Euro
+4. year, account balance: 15704,88 Euro
 
 49. month, account balance: 16004,88 Euro
 50. month, account balance: 16304,88 Euro
@@ -312,5 +320,5 @@ You needed 6. tries and have no try left!
 59. month, account balance: 19004,88 Euro
 60. month, account balance: 19304,88 Euro
 
-5. year , account balance: 19980,55 Euro
+5. year, account balance: 19980,55 Euro
 ```

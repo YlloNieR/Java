@@ -16,7 +16,7 @@ public class JBuildingLoanAgreement{
             System.out.println(i+". month, account balance: "+commaAfter2Digits(accountBalance)+" Euro");
             if(i % 12 == 0){
                 accountBalance = accountBalance + ((accountBalance/100)*interest);
-                System.out.println("\n"+(i/12)+". year , account balance: "+commaAfter2Digits(accountBalance)+" Euro\n");
+                System.out.println("\n"+(i/12)+". year, account balance: "+commaAfter2Digits(accountBalance)+" Euro\n");
             }
             accountBalance = accountBalance + monthlyRate;
            
